@@ -16,13 +16,12 @@ jobs:
 
       - name: print values
         run: echo ${{ github.repository_owner }}/${{ matrix.target_repo }}
+
       - name: Checkout target repo
         uses: actions/checkout@v2
         with:
           repository: ${{ github.repository_owner }}/${{ matrix.target_repo }}
           path: ${{ matrix.target_repo }}
-          token: ${{ secrets.RW_REPO}}
-          ref: master
 
 
       - name: Update workflows
