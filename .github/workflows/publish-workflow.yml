@@ -13,6 +13,8 @@ jobs:
         target_repo: [ 'java-service-1' , 'java-service-2' ]
     steps:
       - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.RW_REPO }}
 
       - name: print values
         run: echo ${{ github.repository_owner }}/${{ matrix.target_repo }}
