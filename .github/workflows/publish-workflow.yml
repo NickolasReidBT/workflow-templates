@@ -12,10 +12,8 @@ jobs:
       matrix:
         target_repo: [ 'java-service-1' , 'java-service-2' ]
     steps:
-      - name: Checkout Workflows
-        uses: actions/checkout@v3
-        with:
-          path: main
+      - uses: actions/checkout@v3
+
       - name: Checkout target repo
         uses: actions/checkout@v2
         with:
@@ -23,12 +21,16 @@ jobs:
           path: ${{ matrix.target_repo }}
           token: ${{ secrets.RW_REPO}}
           ref: master
+
+
       - name: Update workflows
         shell: bash
         run: |
           mkdir -p .github/workflows/
           cp ../main/templates/* .github/workflows/
         working-directory: ./${{ matrix.target_repo }}
+
+
       - name: Publish workflows
         shell: bash
         run: |
