@@ -28,7 +28,6 @@ jobs:
       - name: Update workflows
         shell: bash
         run: |
-          mkdir -p .github/workflows/
           cp ../templates/* ./
         working-directory: ./${{ matrix.target_repo }}
 
