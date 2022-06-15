@@ -20,4 +20,4 @@ jobs:
       - name: Build with Maven
         shell: bash
         run: |
-          mvn test
+          mvn test   
