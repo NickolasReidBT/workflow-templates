@@ -14,6 +14,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: print values
+        run: echo ${{ github.repository_owner }}/${{ matrix.target_repo }}
       - name: Checkout target repo
         uses: actions/checkout@v2
         with:
